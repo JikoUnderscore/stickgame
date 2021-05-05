@@ -1,0 +1,43 @@
+{
+"options0": "1|2", "0":
+{"Helllo dear sir i am the talk-a-lot selse man. With what can i help you, maybe with some food, socks, wapons or maybe some POWA POTIONS. i got it all ":
+	["[1] I want some food please, and if you have bread it will be good",
+	"[2] you got stiff",
+	""]},
+
+	"options1": "3", "1":
+	{"Oh well we have a lot of food. For bread we have the taisties bread form all around tha land":
+		["[1] Do you have brownd bread. I dont like eating the white one. It tastes like poo poo",
+		"",
+		"" ]},
+
+		"options3": "6", "3":
+		{"WHAaaat!!! YOU PICKIG BUGGER. HOW CAN YOU LIKE ONLY BROWND BEAD!!!!": [
+			"[1] It is just the bead that i drow up with, and it is all tha i want",
+			"",
+			""]},
+
+			"options6": "-999", "6":
+			{"Well, i do not sell it but i know some one that can help you. He live by ...": [
+				"[1] Thans man i will go and find hin and buy all tha bead i can eat. yaya",
+				"",
+				"" ]},
+
+	"options2": "4|5", "2":
+	{"YES i have all kinds of stiff": [
+		"[1] Do you have cool stuff",
+		"[2] shot me the cool stuff",
+		"" ]},
+
+		"options4": "-999|0", "4":
+		{"maybe we got cool stiff maybe we dont": [
+			"[1] ok cool",
+			"[2] <go back to start>",
+			"" ]},
+
+		"options5": "-999|0", "5":
+		{"we got spam, ham, cheese, spam amd spam": [
+			"[1] so much spam",
+			"[2] <go back to start>",
+			"" ]}
+}

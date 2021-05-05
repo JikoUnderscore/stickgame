@@ -1,0 +1,4 @@
+id,QuestType,Active,Title,Description,goals,min,max
+0,KILL,1,Troble in the town,Slay the PIG boss and his lieutenets,PIG boss slain {}/{}. \n Pig lieutenets slayn {}/{},4 4,1 4
+1,KILL,1,Bunny Killer,Find and slay a rabbit,Rabbits slain {}/{},1,1
+2,KILL,1,Slay flowers, Kill the flower mosters, Rose monster slain {}/{}. \n Dendilion monster slain {}/{}. \n Grass monster slain {}/{}.,10 6 10,5 6 7

@@ -1,0 +1,9 @@
+{
+ "options0": "100|2", "0":
+{"Wanna buy stuff?":
+	["[1] What do ye have.", "[2] Tell me about this plase, please?", ""]},
+
+	"options2": "100", "2":
+	{"It is a market. You barter your item here.":
+		["[1] Good to know. Show me the goods.", "", ""]}
+}
