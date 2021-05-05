@@ -6,7 +6,7 @@ GAME ENGINE - in progress build
 from pygame import *
 from Cuzd import newRender
 from Oborudvane import TIPOVE_ORYZIJA, TIPOVE_BRONI, sakk
-from Postojanni import MAP, poslednaZona, dvizenie, EKRAN, FPS, FONT15, FONT20, FONT22, FONT25, FONT28, FONT35
+from Postojanni import MAP, poslednaZona, dvizenie, EKRAN, FPS, FONT15, FONT20, FONT22, FONT25, FONT28, FONT35, nastojastaZona
 from vojna import Combats as Combat, CD
 from json import load
 
@@ -53,6 +53,9 @@ class Sprite:
     def narisuvane(self):
         EKRAN.blit(self.covece, (self.hitbox.x - self.promjanaX, self.hitbox.y - self.promjanaY))
         draw.rect(EKRAN, (255, 0, 0), self.hitbox, 2)
+
+    def __del__(self):
+        print(self, 'deleted')
 
 
 class Igrac(Sprite, CD):
@@ -969,6 +972,8 @@ class Igrac(Sprite, CD):
             for k, v in MAP.items():
                 MAP[k] = False
             MAP['Camp'] = True
+            nastojastaZona.clear()
+            nastojastaZona.append('Camp')
 
         EKRAN.blit(self.kovacev, self.kovacevHittbox)
 
@@ -1890,6 +1895,8 @@ class KARTA:
                 for k, v in MAP.items():
                     MAP[k] = False
                 MAP[na_zona] = True
+                nastojastaZona.clear()
+                nastojastaZona.append(na_zona)
                 self.colide = False
 
     def mini_ikonka_markirana(self, na_zona, ekrann, subekt, kvadratce):
@@ -1925,6 +1932,8 @@ class KARTA:
                     MAP[k] = False
                     self.colide = False
                 MAP[na_zona] = True
+                nastojastaZona.clear()
+                nastojastaZona.append(na_zona)
             elif key.get_pressed()[K_2]:
                 self.colide = False
         elif not self.miniHitbox.colliderect(kvadratce):

@@ -119,8 +119,8 @@ class Item:
         else:
             print('no no NOooo ')
 
-    # def __del__(self):
-    #     print(f" '{self.raw_name}' is deleted")
+    def __del__(self):
+        print(self.raw_name, 'deleted')
 
     def recalc(self):
         self.netValue = self.quantity * self.value

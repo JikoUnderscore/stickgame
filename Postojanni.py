@@ -18,6 +18,7 @@ FONT35 = font.Font(SRIFT, 35)
 FONT40 = font.Font(SRIFT, 40)
 
 poslednaZona = [{}, []]
+nastojastaZona = ['Camp']
 
 dvizenie = [0, 0]
 EKRAN = display.set_mode((1080, 720))
