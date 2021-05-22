@@ -1,15 +1,19 @@
 from pygame import *
+
 init()
 from Postojanni import MAP, poslednaZona, dvizenie, EKRAN, FPS, FONT35, nastojastaZona
 from Cuzd import fpsint, newRender
 from OsnoviKarti import kovacestvo, cjalSjat, igracyt, kymNacalo
-from OsnoviKarti import ig, maglivaKarta, fovig, mygla, svetovnaKarta, energija_na_dvizene, miniKvadrati, narisyvaj_pytekata, back, zona_v_maglata
+from OsnoviKarti import ig, maglivaKarta, fovig, mygla, svetovnaKarta, energija_na_dvizene, miniKvadrati, \
+    narisyvaj_pytekata, back, zona_v_maglata
 from OsnoviKarti import nacalo, grad, karta1, karta2
-#from ENGINE import FONT35
+# from ENGINE import FONT35
 # from poluMojKod import Item, Container
 
 from VsiOborudvane import *
 from Oborudvane import sakk
+
+
 def test():
     sakk.add(mec)
     sakk.add(mec1)
@@ -69,9 +73,13 @@ def camp():
     nacalo.risuvaj_zonata()
     cjalSjat.ikona_markitana('svetovna')
     kovacestvo.ikona_markitana('kovane')
+
+
 def kovane():
     kovacestvo.risuvaj_zonata()
     igracyt.kovane_predmeti(e)
+
+
 def svetovna():
     global cisloZaPremigvane
     fovig.center = ig.center
@@ -118,6 +126,8 @@ def svetovna():
         elif e.key == K_d and ig.x < 1041:
             ig.x += 20
             energija_na_dvizene(poslednaZona)
+
+
 def pig_cave():
     global theload
     if theload:
@@ -141,14 +151,14 @@ def pig_cave():
             prijatel1.narisuvane()
         igracyt.narisuvane()
         kamyk.narisuvane()
-    elif igracyt.hitbox.bottom < vrag1.hitbox.bottom and igracyt.hitbox.bottom > prijatel1.hitbox.bottom and igracyt.hitbox.bottom <= kamyk.hitbox.bottom:
+    elif vrag1.hitbox.bottom > igracyt.hitbox.bottom > prijatel1.hitbox.bottom and igracyt.hitbox.bottom <= kamyk.hitbox.bottom:
         if prijatel1.kljuc1:
             prijatel1.narisuvane()
         igracyt.narisuvane()
         kamyk.narisuvane()
         if not prijatel1.kljuc1:
             vrag1.narisuvane()
-    elif igracyt.hitbox.bottom < vrag1.hitbox.bottom and igracyt.hitbox.bottom > prijatel1.hitbox.bottom and igracyt.hitbox.bottom >= kamyk.hitbox.bottom:
+    elif vrag1.hitbox.bottom > igracyt.hitbox.bottom > prijatel1.hitbox.bottom and igracyt.hitbox.bottom >= kamyk.hitbox.bottom:
         if prijatel1.kljuc1:
             prijatel1.narisuvane()
         kamyk.narisuvane()
@@ -208,6 +218,8 @@ def pig_cave():
             nastojastaZona.clear()
             nastojastaZona.append('svetovna')
             theload = 1
+
+
 def pig_cave_pestera():
     global theload
     if theload:
@@ -222,8 +234,7 @@ def pig_cave_pestera():
     karta1PesteraIzhod1.narisuvane()
 
     # print(igracyt.playerPosX, igracyt.hitbox.x, prijatel11.hitbox.x)
-    if (igracyt.hitbox.x >= 525 and igracyt.playerPosX >= 1080 and prijatel11.hitbox.x >= 0 or
-            prijatel11.hitbox.x <= 600 and prijatel11.hitbox.x >= 0):
+    if igracyt.hitbox.x >= 525 and igracyt.playerPosX >= 1080 and prijatel11.hitbox.x >= 0 or 600 >= prijatel11.hitbox.x >= 0:
         prijatel11.hitbox.x += -5
         prijatel11.spusyk_pestera(True)
     if prijatel11.hitbox.x >= 0:
@@ -246,6 +257,8 @@ def pig_cave_pestera():
             nastojastaZona.clear()
             nastojastaZona.append('Pig Cave')
             theload = 1
+
+
 def market_place():
     global theload
     if theload:
@@ -294,6 +307,8 @@ def market_place():
             nastojastaZona.clear()
             nastojastaZona.append('svetovna')
             theload = 1
+
+
 def westvield_city():
     global theload
     if theload:
@@ -348,7 +363,7 @@ mpaFuncs = {
 
 if __name__ == '__main__':
     theload = 1
-    #nacalo = image.load('data/mainmenu.png').convert()
+    # nacalo = image.load('data/mainmenu.png').convert()
     CLOCK = time.Clock()
     cisloZaPremigvane = 0
     run = True
@@ -361,7 +376,6 @@ if __name__ == '__main__':
         if e.type == KEYDOWN:
             if e.key == K_ESCAPE:
                 test()
-
 
         if MAP[nastojastaZona[0]]:
             mpaFuncs[nastojastaZona[0]]()
@@ -630,11 +644,10 @@ if __name__ == '__main__':
         #             MAP['svetovna'] = True
         #             theload = 1
 
-
         igracyt.bagaz_v_ranicata(e)
-        #print(igracyt._y_move)
+        # print(igracyt._y_move)
         fpsint(CLOCK.get_fps(), EKRAN)
         display.flip()
-        #print('vrag1' in locals())
-        #print("Uncollectable garbage:", gc.garbage, 'colected', gc.collect())
+        # print('vrag1' in locals())
+        # print("Uncollectable garbage:", gc.garbage, 'colected', gc.collect())
     quit()
